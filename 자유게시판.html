@@ -1,0 +1,922 @@
+<head>
+    <title>모여봐요 MBTI</title>
+    <meta charset="utf-8">
+    <link href="https://fonts.googleapis.com/css2?family=Cute+Font&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cute+Font&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dongle&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dongle&display=swap');
+
+
+        * {
+            /* 폰트 아직 고민중 */
+            font-family: 'Dongle', sans-serif;
+            font-size: 20px;
+
+        }
+
+
+
+        #title img {
+            height: 200px;
+            width: 100%;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+
+
+        .mybutton {
+            height: 50px;
+            width: 150px;
+            border-radius: 10px;
+            border: none;
+            font-size: 30px;
+        }
+
+        .mybutton:hover {
+            background: silver;
+        }
+
+        .info {
+            height: 50px;
+            width: 150px;
+            margin: 40px 0px 50px 20px;
+        }
+
+        .buttons {
+            height: 80px;
+            width: 150px;
+            margin: 40px 0px 50px 20px;
+        }
+
+        .hr_first {
+            width: 150px;
+            border: 2px solid rgb(145, 142, 142);
+            margin: 0 0 50px 20px;
+
+        }
+
+
+        .manu {
+            height: 80px;
+            width: 150px;
+
+            border-radius: 10px;
+            border: none;
+
+            font-size: 30px;
+            color: white;
+
+            background-color: #5151A5;
+        }
+
+        #free {
+            background-color: rgb(238, 138, 138);
+        }
+
+        .manu:hover {
+            background: #202058;
+        }
+
+        .v-line {
+            border-right: 5px double rgb(145, 142, 142);
+            height: 100%;
+            width: 200px;
+            margin-right: 0px;
+            float: left;
+        }
+
+        .list {
+            float: left;
+            margin-top: 10px;
+            margin-left: 600px;
+        }
+
+        h1 {
+            display: block;
+            width: 300px;
+            margin-left: 48%;
+            margin-top: 20px;
+            font-size: 60px;
+            color: rgb(74, 73, 82);
+        }
+
+        .writeboard {
+            float: right;
+            height: 50px;
+            width: 100px;
+            margin-top: -60px;
+            margin-left: 400px;
+            margin-right: 8%;
+        }
+
+        .writing {
+            height: 50px;
+            width: 100px;
+            border-radius: 10px;
+            border: none;
+            margin-top: 10px;
+
+            font-size: 30px;
+            color: black;
+        }
+
+        li {
+            text-decoration: none;
+            color: inherit list-
+        }
+
+        .board_wrap {
+            margin: 50px 0px 50px 250px;
+            width: 80%;
+        }
+
+        .board_title {
+            margin-bottom: 30px;
+
+        }
+
+        .board_title strong {
+            font-size: 3rem;
+        }
+
+        .board_title p {
+            margin-top: 5px;
+            font-size: 1.4rem;
+        }
+
+        .bt_wrap {
+            margin-top: 30px;
+            text-align: center;
+            font-size: 0;
+        }
+
+        .bt_wrap a {
+            display: inline-block;
+            min-width: 80px;
+            padding: 10px;
+            border: 1px solid #000;
+            border-radius: 2px;
+            font-size: 1.4rem;
+        }
+
+        .bt_wrap a:first-child {
+            margin-left: 0;
+        }
+
+        .bt_wrap a.on {
+            background: #000;
+            color: #fff;
+        }
+
+        .board_list {
+            width: 100%;
+            border-top: 2px solid black;
+        }
+
+        .title a {
+            font-size: 25px;
+        }
+
+        .board_list>div {
+            border-bottom: 1px solid #999;
+            font-size: 0;
+        }
+
+        .board_list>div.top {
+            border-color: #999;
+        }
+
+        .board_list>div:last-child {
+            border-bottom: 1px solid #000;
+        }
+
+        .board_list>div>div {
+            display: inline-block;
+            padding: 15px 0;
+            text-align: center;
+            font-size: 1.4rem;
+        }
+
+        .board_list .num {
+            width: 10%;
+        }
+
+        .board_list .title {
+            width: 60%;
+            text-align: left;
+        }
+
+        .board_list .title.top {
+            text-align: center;
+        }
+
+        .board_list .writer {
+            width: 10%;
+        }
+
+        .board_list .date {
+            width: 10%;
+        }
+
+        .board_list .count {
+            width: 10%;
+        }
+
+        .board_page {
+            margin-top: 30px;
+            text-align: center;
+            font-size: 0;
+        }
+
+        .board_page a {
+            display: inline-block;
+            width: 32px;
+            height: 32px;
+            box-sizing: border-box;
+            border: 1px solid #ddd;
+            border-left: 0;
+            vertical-align: middle;
+            line-height: 100%;
+
+
+        }
+
+        .board_page a.bt {
+            padding-top: 10px;
+            font-size: 1.2rem;
+        }
+
+        .board_page a.num {
+            padding-top: 9px;
+            font-size: 1.4rem;
+        }
+
+        .board_page a:first-child {
+            border-left: 1px solid #ddd;
+        }
+
+        #name_title {
+            text-align: center;
+        }
+
+
+
+
+
+        .btn-close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+        }
+
+        .login {
+            margin-left: 0;
+        }
+
+        .login .top {
+            position: relative;
+            width: 420px;
+        }
+
+        .login .top li {
+            padding: 0 0 9px;
+        }
+
+        .login .top li label {
+            display: inline-block;
+            width: 110px;
+            font-size: 20px;
+            color: #464646;
+            font-weight: bold;
+        }
+
+        .login.top li input[type="text"],
+        .login.top li input[type='password'] {
+            width: 90px;
+            height: 29px;
+            padding: 0;
+            border-color: #d9d9d9;
+        }
+
+        .login .top li.btn {
+            position: absolute;
+            right: 60;
+            top: 0;
+        }
+
+        .login .top li a {
+            display: block;
+            width: 110px;
+            height: 67px;
+            background-color: #829c2c;
+            font-size: 17px;
+            color: #fff;
+            text-align: center;
+            line-height: 69px;
+            font-weight: bold;
+            border: 1px solid #778f28;
+        }
+
+        .login .top li.save {
+            padding: 0 0 0 59px;
+            font-weight: normal;
+        }
+
+        .login.btm {
+            padding: 10px 0 0 59;
+        }
+
+        .login.btm li {
+            color: #383d41;
+            font-size: 18px;
+        }
+
+        .btm a {
+            color: #4249b5;
+        }
+
+        .login.btm li a {
+            margin: 0 0 0 5px;
+            font-size: 12px;
+            font-weight: bold;
+            color: #829c2c;
+            text-decoration: underline;
+        }
+
+        .board_view {
+            width: 80%;
+            height: 500px;
+            border-top: 2px solid black;
+            font-size: 1.4rem;
+        }
+
+        .board_view .v-title {
+            padding: 20px 15px;
+            border-bottom: 1px dashed #ddd;
+            font-size: 2rem;
+        }
+
+        .board_view .v-info {
+            padding: 10px;
+            border-bottom: 1px solid #999;
+            font-size: 0;
+        }
+
+        .board_view .v-info dl {
+            position: relative;
+            display: inline-block;
+            padding: 0 20px;
+        }
+
+        .board_view .v-info dl:first-child {
+            padding-left: 0;
+        }
+
+        .board_view .v-info dl::before {
+            content: "";
+            position: absolute;
+            top: 5px;
+            left: 0;
+            display: block;
+            width: 1px;
+            height: 30px;
+            background: #ddd;
+        }
+
+        .board_view .v-info dl:first-child:before {
+            display: none;
+        }
+
+        .board_view .v-info dl dt,
+        .board_view .v-info dl dd {
+            display: inline-block;
+            font-size: 1.4rem;
+        }
+
+        .board_view {
+            margin-right: 0px;
+            width: 100%;
+        }
+
+
+        .board_view .v-info dl dd {
+            margin-left: 5px;
+            color: #777;
+        }
+
+        .board_view .v-cont {
+            padding: 15px;
+            border-bottom: 1px solid #000;
+            line-height: 160%;
+            font-size: 1rem;
+        }
+
+        .v-comment {
+            width: 90%;
+            height: 50px;
+            padding-bottom: 10px;
+            border-bottom: 1px dashed #999;
+        }
+
+
+
+        .Modal {
+            position: fixed;
+            background-color: rgba(0, 0, 0, 0.4);
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: none;
+        }
+
+        .ModalContent {
+            background-color: #fff;
+            width: 500px;
+            border-radius: 10px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 30px;
+            box-shadow: 0 0 15px black;
+        }
+
+        .btn-close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+        }
+
+        .btn-finsh {
+            background-color: #4249b5;
+            color: #fff;
+            border-radius: 10px;
+            font-size: 30px;
+            padding: 7px;
+            width: 500px;
+        }
+
+        .v-bt_wrap {
+            margin-top: 30px;
+            text-align: center;
+            font-size: 0;
+        }
+
+        .v-bt_wrap a {
+            display: inline-block;
+            min-width: 80px;
+            padding: 10px;
+            border: 1px solid #000;
+            border-radius: 2px;
+            font-size: 1.4rem;
+        }
+
+
+
+        #comment_comment {
+            background-color: #cac2c5;
+            border-radius: 10px;
+            border: 1px solid #202058;
+            height: 25px;
+            margin-left: 20px;
+            font-size: 15px;
+        }
+
+        .btn-like {
+            height: 50px;
+            width: 100px;
+            border-radius: 10px;
+            border: none;
+            margin-top: 10px;
+            font-size: 30px;
+            color: black;
+            background-color: #fbe02c;
+            margin-left: 50%;
+        }
+
+        .board_view_wrap {
+            width: 150%;
+            flex-direction: column;
+            display: inline-block;
+        }
+
+        .board_view_wrap a {
+            font-size: 30px;
+        }
+
+        #comment {
+            width: 85%;
+            height: 50px;
+            margin-left: 10px;
+            margin-right: 30px;
+            border-radius: 10px;
+        }
+
+        .iModalContent {
+            width: 150%;
+        }
+
+        .iModalContent h2 {
+            font-size: 25px;
+        }
+
+        #comment_box {
+            width: 150%;
+        }
+
+        .all_div {
+            display: inline-block;
+            width: 100%;
+        }
+
+        /*모달 부분*/
+
+        .Modal {
+            position: fixed;
+            background-color: rgba(0, 0, 0, 0.4);
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: none;
+        }
+
+        .ModalContent {
+            background-color: #fff;
+            width: 460px;
+            border-radius: 10px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 30px;
+            box-shadow: 0 0 15px black;
+            margin-left: 0;
+        }
+
+        .ModalContent legend {
+            text-align: center;
+            font-size: 30px;
+            border-bottom: 1px dashed black;
+        }
+
+        #title {
+            height: 200px;
+            background-image: url('img/상단.jpg');
+            background-position: center;
+            background-size: cover;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .login {
+            margin-top: 30px;
+        }
+
+        .login .top {
+            position: relative;
+            width: 350px;
+        }
+
+        #id {
+            margin-left: 10px;
+            width: 190px;
+            border-radius: 10px;
+            border: 2px solid black;
+        }
+
+        #pw {
+            margin-left: 10px;
+            width: 190px;
+            border-radius: 10px;
+            border: 2px solid black;
+        }
+
+        .login .top li {
+            padding: 0 0 9px;
+        }
+
+        .login .top li label {
+            display: inline-block;
+            width: 63px;
+            font-size: 20px;
+            color: #464646;
+            font-weight: bold;
+        }
+
+
+        .login .top li.btn {
+            position: absolute;
+            right: -25px;
+            top: 0;
+        }
+
+        .login .top li a {
+            display: block;
+            width: 90px;
+            height: 67px;
+            background-color: #829c2c;
+            font-size: 17px;
+            color: #fff;
+            text-align: center;
+            line-height: 69px;
+            font-weight: bold;
+            border: 1px solid #778f28;
+            text-decoration: none;
+            border-radius: 10px;
+        }
+
+        .login.btm {
+            padding: 31px 0 0 59;
+        }
+
+        .login.btm li {
+            color: #383d41;
+            font-size: 12px;
+            text-align: center;
+        }
+
+        .btm {
+            text-align: center;
+            padding: 0px;
+        }
+
+        .login a {
+            text-decoration: none;
+        }
+
+
+        .btn-close {
+            position: absolute;
+            top: 5px;
+            right: 10px;
+            bottom: 20px;
+            box-sizing: content-box;
+            width: 1em;
+            height: 1em;
+            color: #000;
+            font-size: 50px;
+            text-align: center;
+
+        }
+
+        .board_list_wrap {
+            width: 100%;
+        }
+
+        #test::-webkit-scrollbar {
+            width: 10px;
+            /*스크롤바의 너비*/
+        }
+
+        #test::-webkit-scrollbar-thumb {
+            background-color: rgb(212, 72, 114);
+            /*스크롤바의 색상*/
+        }
+
+        #test::-webkit-scrollbar-track {
+            background-color: rgb(24, 47, 140);
+            /*스크롤바 트랙 색상*/
+        }
+    </style>
+
+    <style type="text/css">
+        A:link {
+            text-decoration: none;
+            color: #000000;
+        }
+
+        A:visited {
+            text-decoration: none;
+            color: #000000;
+        }
+
+        A:active {
+            text-decoration: none;
+            color: #000000;
+        }
+
+        A:hover {
+            text-decoration: none;
+            color: #000000;
+        }
+    </style>
+    <script>
+
+        $(document).ready(function () {
+            show_num()
+        });
+        function login() {
+            let id = $('#id').val()
+            let pw = $('#pw').val()
+
+            let formData = new FormData();
+            formData.append("id_give", id);
+            formData.append("pw_give", pw);
+
+            fetch('/login', { method: "POST", body: formData, }).then((res) => res.json()).then((data) => {
+                alert(data["msg"]);
+                location.href = 'board?category=freeboard'
+            });
+        }
+
+        function logoutConfirm() {
+            if (confirm("정말 로그아웃하시겠습니까?")) {
+                location.href = 'logout'
+            }
+        }
+
+        $(document).ready(function () {
+            let category = ""
+            if (location.href.includes("?")) {
+                category = location.href.split("?")[1].split("=")[1]
+                if (category == "freeboard") {
+                    $('#catetitle').text("\n        <자유게시판>\n    ")
+                }
+                if (category == "bestboard") {
+                    $('#catetitle').text("\n        <베스트글>\n    ")
+                }
+                if (category == "loveboard") {
+                    $('#catetitle').text("\n        <연애상담소>\n    ")
+                }
+                if (category == "jobboard") {
+                    $('#catetitle').text("\n        <취업Q&A>\n    ")
+                }
+            } else {
+                alert("게시판을 선택해주세요.")
+                location.href = "/"
+            }
+            show_cotents(category)
+        });
+        function show_cotents(category) {
+            if (category == "bestboard") {
+                category = "베스트글"
+            }
+            if (category == "freeboard") {
+                category = "자유게시판"
+            }
+            if (category == "loveboard") {
+                category = "연애상담소"
+            }
+            if (category == "jobboard") {
+                category = "취업Q&A"
+            }
+            $.ajax({
+                type: "POST",
+                url: "/contents",
+                data: {
+                    'category': category
+                },
+                success: function (response) {
+                    let rows = response['board']
+                    let a = response['a']
+
+                    console.log(rows)
+
+
+                    for (let i = 0; i < rows.length; i++) {
+                        let title = rows[i]['title']
+                        let writer = rows[i]['writer']
+                        let created_at = rows[i]['created_at']
+                        let hits = rows[i]['hits']
+                        let like = rows[i]['like']
+                        let user_id = rows[i]['user_id']
+                        let num = rows[i]['num']
+                        let year = new Date(created_at).getFullYear().toString().substring(2)
+                        let month = new Date(created_at).getUTCMonth() + 1
+                        let day = new Date(created_at).getUTCDate()
+                        let strdate = `${year}.${month}.${day}`
+
+
+                        let temp_html = `<div class="card">
+                                            <div id="num" class="num" id="mynum">${a[i + 1]}</div>
+                                            <div class="title"><a href="/detail?uid=${user_id};created_at=${created_at}">${title}</a></div>
+                                            <div id="writer" class=" writer">${writer}</div>
+                                            <div id="created_at" class="date">${strdate}</div>
+                                            <div id="hits" class="count">${like}</div>
+                                        </div>`
+                        $('#board').append(temp_html)
+
+                    }
+
+
+
+                }
+            });
+        }
+
+
+    </script>
+</head>
+
+<body>
+    <div id="title">
+        <a id="title_img" href="/">
+            <img src="{{ url_for('static', filename='images/상단.jpg') }}" />
+        </a>
+    </div>
+    <div class="v-line">
+        <div class="info">
+            {%if session['id_give'] %}
+            {{session['id_give']}}({{session['mbti']}})<a>님 반가워요!</a><br>
+            <button class="mybutton" onclick="logoutConfirm()" style='cursor:pointer'>로그아웃</button>
+            {%else %}
+            <button id="btn-modal" class="mybutton" style='cursor:pointer'>로그인</button>
+            {%endif%}
+        </div>
+        <hr class="hr_first">
+        <div class="buttons">
+            <button class="manu" onclick="location.href='/board?category=freeboard'"
+                style='cursor:pointer'>자유게시판</button>
+        </div>
+        <div class="buttons">
+            <button class="manu" onClick="location.href='/board?category=loveboard'"
+                style='cursor:pointer'>연애상담소</button>
+        </div>
+        <div class="buttons">
+            <button class="manu" onClick="location.href='/board?category=jobboard'"
+                style='cursor:pointer'>취업Q&A</button>
+        </div>
+        <div class="buttons">
+            <button class="manu" onClick="location.href='/moyeojo'"
+                style='cursor:pointer'>개발자</button>
+        </div>
+    </div>
+    <h1 id="catetitle">
+        <자유게시판>
+    </h1>
+    {% if session['id_give'] %}
+    <div class="writeboard">
+        <button class="writing" onclick="location.href='posting'" style='cursor:pointer'>글쓰기</button>
+    </div>
+    {% endif %}
+
+    <div class="board_wrap">
+        <div class="board_list_wrap">
+            <div id="test" style="height: 80%; overflow: auto">
+                <div id="board" class="board_list"> <!--우람님 파트-->
+                    <div class="card">
+                        <div class="num" id="mynum">번호</div>
+                        <div id="name_title" class="title">제목</div>
+                        <div class="writer">MBTI</div>
+                        <div class="date">작성일</div>
+                        <div class="count">공감수</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="Modal">
+        <form action="" method="">
+            <fieldset class="ModalContent">
+                <a class="btn-close" href="#">x</a>
+                <div>
+                    <legend>
+                        <로그인>
+                    </legend>
+                </div>
+                <div class="login">
+                    <ul class="top">
+                        <li><label for="text1">아이디</label><input type="text" id="id"></li>
+                        <li><label for="text2">비밀번호</label><input type="password" id="pw"></li>
+                        <li class="btn" onclick="login()"><a href="#a">로그인</a></li>
+                    </ul>
+                    <ul class="btm">
+                        <li><a href="#" onClick="location.href='signup'">회원이 아니신가요?</a></li>
+                    </ul>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+    <script>
+        $('.mybutton').click(function () {
+            $('.Modal').fadeIn()
+        })
+        $('.btn-close').click(function () {
+            $('.Modal').fadeOut()
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Dongle&display=swap" rel="stylesheet">
+    <title>Document</title>
+
+    <style>
+         @import url('https://fonts.googleapis.com/css2?family=Dongle&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: 'Dongle', sans-serif;
+            font-size: 20px;
+        }
+
+        html,
+        body {
+            margin-top: 0px;
+            height: 100%;
+        }
+
+        body {
+            display: box;
+            box-orient: vertical;
+            box-pack: center;
+            box-align: center;
+            font: .7em/1.5 "lucida grande", arial, sans-serif;
+            background: #ffe7e7;
+            text-align: center;
+
+        }
+
+        .div {
+            display: inline-block;
+            width: 500px;
+            background: rgb(255, 255, 255);
+            border-radius: 10px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, .3);
+            margin: 0 auto;
+
+        }
+
+        p {
+            height: 0;
+            padding: 0 15px;
+            overflow: hidden;
+            transition: height .4s ease-out, padding .4s ease-out;
+        }
+
+        h1 {
+            font-size: 1em;
+        }
+
+        a {
+            display: block;
+            height: 30px;
+            line-height: 23px;
+            background: linear-gradient(rgb(180, 60, 60), rgb(252, 82, 82));
+            color: rgb(255, 255, 255);
+            text-decoration: none;
+            text-align: center;
+            text-shadow: 0 1px 0 rgba(255, 255, 255, .5);
+            border-bottom: 1px solid #aaa;
+        }
+
+        #intro {
+            border-radius: 2px 2px 0 0;
+        }
+
+        #contact {
+            border-radius: 0 0 3px 3px;
+        }
+
+        a:hover,
+        a:focus {
+            opacity: .9;
+        }
+
+        a:active {
+            background: linear-gradient(#ccc, #ddd);
+            color: #000;
+        }
+
+        :target+p {
+            padding: 10px 15px;
+            border-bottom: 1px solid #ccc;
+        }
+
+        #intro:target+p {
+            height: 250px;
+        }
+
+        #info:target+p {
+            height: 250px;
+        }
+
+        #contact:target {
+            border-radius: 0;
+        }
+
+        #contact:target+p {
+            height: 250px;
+        }
+
+        #a:target+p {
+            height: 250px;
+        }
+
+        #b:target+p {
+            height: 250px;
+        }
+
+        .hamburger {
+            box-sizing: border-box;
+            text-align: center;
+            width: 200px;
+            position: relative;
+            bottom: 370px;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        .hamburger input[type="checkbox"] {
+            width: 40px;
+            height: 32px;
+            position: absolute;
+            top: 5px;
+            left: 6px;
+            display: block;
+            z-index: 3;
+            opacity: 0;
+            cursor: pointer;
+        }
+
+        .hamburgerlines {
+            width: 40px;
+            height: 32px;
+            position: absolute;
+            top: 8px;
+            left: 7px;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .hamburgerlines .lines {
+            display: block;
+            height: 4px;
+            width: 100%;
+            background: #232323;
+            border-radius: 10px;
+        }
+
+        .menu-items {
+            padding-top: 90px;
+            transform: translate(-110%);
+            transition: transform 0.5s ease-in-out;
+            padding-left: 15px;
+            background: #fff;
+            margin-top: -10px;
+            color: #fff;
+            padding-bottom: 1rem;
+            max-width: 400px;
+            width: 90%;
+            height: 50%;
+            overflow: scroll;
+        }
+
+        .menu-items li {
+            margin-bottom: 2rem;
+            font-size: 1.5rem;
+        }
+
+        .hamburger input[type="checkbox"]:checked~.menu-items {
+            display: block;
+            transform: translate(0%);
+            background: #232323;
+
+        }
+
+        .hamburger input[type="checkbox"]:checked~.hamburgerlines .lines {
+            background: #fff;
+        }
+
+        .hamburgerlines .line1 {
+            transform-origin: 0% 0%;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .hamburgerlines .line3 {
+            transform-origin: 0% 100%;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .hamburger input[type="checkbox"]:checked~.hamburgerlines .line1 {
+            transform: rotate(45deg);
+        }
+
+        .hamburger input[type="checkbox"]:checked~.hamburgerlines .line2 {
+            display: none;
+        }
+
+
+        .hamburger input[type="checkbox"]:checked~.hamburgerlines .line3 {
+            transform: rotate(-45deg);
+        }
+
+        @keyframes cat {
+            0% {
+                left: 0px;
+                top: -400px;
+            }
+
+            100% {
+                left: 0px;
+                top: -100px;
+            }
+        }
+
+        @keyframes cat2 {
+            0% {
+                left: 0px;
+                top: 150px;
+            }
+
+            100% {
+                left: 0px;
+                top: -150px;
+            }
+        }
+
+        .img {
+            position: relative;
+            margin-top: -30%;
+            margin-left: 55%;
+            animation-name: cat;
+            animation-duration: 2s;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+        }
+
+        .img img{
+            width: 200px;
+        }
+
+        .img2 {
+            position: relative;
+            margin-top: -30%;
+            margin-left: -55%;
+            animation-name: cat2;
+            animation-duration: 2s;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+        }
+
+        .img2 img {
+            width: 200px;
+        }
+
+        p {
+            font-size: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="div">
+        <section>
+            <a href="#intro" id="intro">
+                <h1>김미영</h1>
+            </a>
+            <p>후기) 짜릿하게 힘들고 짜릿하게 보람차다.<br>
+                1) 프론트 - 메인페이지 모달 로그인 회원가입 게시판 게시글 등<br>
+                2) 백앤드 - 회원가입 로그인 댓글 게시판 게시글 등<br>
+                3) 이메일 - kmy9810@naver.com
+            </p>
+        </section>
+        <section>
+            <a href="#info" id="info">
+                <h1>박예림</h1>
+            </a>
+            <p>후기) 후우우... 이게 머라고 이렇게 고민되죠......?.....
+                "귀엽게 즐겨주시면 감사하겠습니다.^^ 우리모두 엠비티아이에 과몰입해봐요"로 하겠습니다...<br>
+                1) 프론트 - 메인페이지 모달 로그인 회원가입 게시판 게시글 등<br>
+                2) 백엔드 - 회원가입 로그인 댓글 게시판 게시글 등<br>
+                3) 이메일 -  aerim528@naver.com 
+        </section>
+        <section>
+            <a href="#contact" id="contact">
+                <h1>손경아</h1>
+            </a>
+            <p>후기)모여봐요!MBTI 많이 애용해 주시고 우리 모여조 팀원들 최고!<br>
+                1) 프론트 - 메인페이지 게시글 등<br>
+                2) 백앤드 - 게시글 댓글<br>
+                3) 이메일 - ths3723123@naver.com
+        </section>
+        <section>
+            <a href="#a" id="a">
+                <h1>주현정</h1>
+            </a>
+            <p>별명) 야망이 넘치는 개발자<br>
+                후기) 좋은 분들과 함께해 감사한 시간이었습니다<br>
+                1) 프론트 - 모달 게시판 게시글<br>
+                2) 백앤드 - 회원가입 로그인 게시판<br>
+                3) 이메일 - joycekr.dev@gmail.com
+            </p>
+        </section>
+        <section>
+            <a href="#b" id="b">
+                <h1>홍우람</h1>
+            </a>
+            <p>후기) 감사합니다 <br>
+                1) 프론트 - 모달 & 게시글<br>
+                2) 이메일 - dnfka725@gmail.com
+            </p>
+        </section>
+    </div>
+    <div class="hamburger">
+        <input type="checkbox">
+        <div class="hamburgerlines">
+            <span class="lines line1">
+
+            </span>
+            <span class="lines line2">
+
+            </span>
+            <span class="lines line3">
+
+            </span>
+        </div>
+        <ul class="menu-items">
+            <li><a href="/">Home</a></li>
+            <li><a href="/board?category=freeboard">자유게시판</a></li>
+            <li><a href="/board?category=loveboard">연애상담소</a></li>
+            <li><a href="/board?category=jobboard">취업Q&A</a></li>    
+        </ul>
+    </div>
+
+    <div class="img">
+        <img src="https://s3.ap-northeast-2.amazonaws.com/blog.spartacodingclub.kr/210709_blog_4.png">
+    </div>
+    <div class="img2">
+        <img src="https://s3.ap-northeast-2.amazonaws.com/blog.spartacodingclub.kr/210709_blog_4.png">
+    </div>
+
+
+
+</body>
+
+</html>

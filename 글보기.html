@@ -1,0 +1,811 @@
+<head>
+    <title>모여봐요 MBTI</title>
+    <meta charset="utf-8">
+    <link href="https://fonts.googleapis.com/css2?family=Cute+Font&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cute+Font&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cute+Font&display=swap');
+
+
+        * {
+            /* 폰트 아직 고민중 */
+            font-family: 'Cute Font', cursive;
+            font-size: 20px;
+
+
+        }
+
+        #title img {
+            height: 200px;
+            width: 100%;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+
+
+        .mybutton {
+            height: 50px;
+            width: 150px;
+            border-radius: 10px;
+            border: none;
+            font-size: 30px;
+        }
+
+        .mybutton:hover {
+            background: silver;
+        }
+
+        .info {
+            height: 50px;
+            width: 150px;
+            margin: 40px 0px 50px 20px;
+        }
+
+        .buttons {
+            height: 80px;
+            width: 150px;
+            margin: 40px 0px 50px 20px;
+        }
+
+        .hr_first {
+            width: 150px;
+            border: 2px solid rgb(145, 142, 142);
+            margin: 0 0 50px 20px;
+
+        }
+
+
+        .manu {
+            height: 80px;
+            width: 150px;
+
+            border-radius: 10px;
+            border: none;
+
+            font-size: 30px;
+            color: white;
+
+            background-color: #5151A5;
+        }
+
+        #free {
+            background-color: rgb(238, 138, 138);
+        }
+
+        .manu:hover {
+            background: #202058;
+        }
+
+        .v-line {
+            border-right: 5px double rgb(145, 142, 142);
+            height: 670px;
+            width: 200px;
+            margin-right: 0px;
+            float: left;
+        }
+
+        .list {
+            float: left;
+            margin-top: 10px;
+            margin-left: 600px;
+        }
+
+        h1 {
+            display: block;
+            margin-left: 50%;
+            margin-top: 20px;
+            font-size: 60px;
+            color: rgb(74, 73, 82);
+        }
+
+        .writeboard {
+            float: right;
+            height: 50px;
+            width: 100px;
+            margin-top: -60px;
+            margin-left: 400px;
+            margin-right: 70px;
+        }
+
+        .writing {
+            height: 50px;
+            width: 100px;
+            border-radius: 10px;
+            border: none;
+            margin-top: 10px;
+
+            font-size: 30px;
+            color: black;
+        }
+
+        li {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .board_wrap {
+            margin: 50px 0px 50px 250px;
+            width: 80%
+        }
+
+        .board_title {
+            margin-bottom: 30px;
+
+        }
+
+        .board_title strong {
+            font-size: 3rem;
+        }
+
+        .board_title p {
+            margin-top: 5px;
+            font-size: 1.4rem;
+        }
+
+        .bt_wrap {
+            margin-top: 30px;
+            text-align: center;
+            font-size: 0;
+        }
+
+        .bt_wrap a {
+            display: inline-block;
+            min-width: 80px;
+            padding: 10px;
+            border: 1px solid #000;
+            border-radius: 2px;
+            font-size: 1.4rem;
+        }
+
+        .bt_wrap a:first-child {
+            margin-left: 0;
+        }
+
+        .bt_wrap a.on {
+            background: #000;
+            color: #fff;
+        }
+
+        .board_list {
+            width: 100%;
+            border-top: 2px solid black;
+        }
+
+        .board_list>div {
+            border-bottom: 1px solid #999;
+            font-size: 0;
+        }
+
+        .board_list>div.top {
+            border-color: #999;
+        }
+
+        .board_list>div:last-child {
+            border-bottom: 1px solid #000;
+        }
+
+        .board_list>div>div {
+            display: inline-block;
+            padding: 15px 0;
+            text-align: center;
+            font-size: 1.4rem;
+        }
+
+        .board_list .num {
+            width: 10%;
+        }
+
+        .board_list .title {
+            width: 60%;
+            text-align: left;
+        }
+
+        .board_list .title.top {
+            text-align: center;
+        }
+
+        .board_list .writer {
+            width: 10%;
+        }
+
+        .board_list .date {
+            width: 10%;
+        }
+
+        .board_list .count {
+            width: 10%;
+        }
+
+        .board_page {
+            margin-top: 30px;
+            text-align: center;
+            font-size: 0;
+        }
+
+        .board_page a {
+            display: inline-block;
+            width: 32px;
+            height: 32px;
+            box-sizing: border-box;
+            border: 1px solid #ddd;
+            border-left: 0;
+            vertical-align: middle;
+            line-height: 100%;
+
+
+        }
+
+        .board_page a.bt {
+            padding-top: 10px;
+            font-size: 1.2rem;
+        }
+
+        .board_page a.num {
+            padding-top: 9px;
+            font-size: 1.4rem;
+        }
+
+        .board_page a:first-child {
+            border-left: 1px solid #ddd;
+        }
+
+        #name_title {
+            text-align: center;
+        }
+
+
+
+
+
+
+        .board_view {
+            width: 30%;
+            height: 500px;
+            border-top: 2px solid black;
+            font-size: 1.4rem;
+        }
+
+        .board_view .v-title {
+            padding: 20px 15px;
+            border-bottom: 1px dashed #ddd;
+            font-size: 2rem;
+        }
+
+        .board_view .v-info {
+            padding: 10px;
+            border-bottom: 1px solid #999;
+            font-size: 0;
+        }
+
+        .board_view .v-info dl {
+            position: relative;
+            display: inline-block;
+            padding: 0 20px;
+        }
+
+        .board_view .v-info dl:first-child {
+            padding-left: 0;
+        }
+
+        .board_view .v-info dl::before {
+            content: "";
+            position: absolute;
+            top: 5px;
+            left: 0;
+            display: block;
+            width: 1px;
+            height: 30px;
+            background: #ddd;
+        }
+
+        .board_view .v-info dl:first-child:before {
+            display: none;
+        }
+
+        .board_view .v-info dl dt,
+        .board_view .v-info dl dd {
+            display: inline-block;
+            font-size: 1.4rem;
+        }
+
+        .board_view {
+            margin-right: 0px;
+            width: 100%;
+        }
+
+
+        .board_view .v-info dl dd {
+            margin-left: 5px;
+            color: #777;
+        }
+
+        .board_view .v-cont {
+            padding: 15px;
+            border-bottom: 1px solid #000;
+            line-height: 160%;
+            font-size: 1rem;
+        }
+
+        .v-comment {
+            width: 90%;
+            height: 50px;
+            padding-bottom: 10px;
+            border-bottom: 1px dashed #999;
+        }
+
+
+
+
+        #comment_comment {
+            background-color: #cac2c5;
+            border-radius: 10px;
+            border: 1px solid #202058;
+            height: 25px;
+            margin-left: 20px;
+            font-size: 15px;
+        }
+
+        .btn-like {
+            height: 50px;
+            width: 100px;
+            border-radius: 10px;
+            border: none;
+            margin-top: 10px;
+            font-size: 30px;
+            color: black;
+            background-color: #fbe02c;
+            margin-left: 50%;
+        }
+
+        .board_view_wrap {
+            width: 100%;
+            flex-direction: column;
+            display: inline-block;
+        }
+
+        .board_view_wrap a {
+            font-size: 30px;
+        }
+
+        #comment {
+            width: 85%;
+            height: 50px;
+            margin-left: 10px;
+            margin-right: 30px;
+            border-radius: 10px;
+        }
+
+        .comment {
+            width: 100%;
+        }
+
+        .comment h2 {
+            font-size: 25px;
+        }
+
+        #comment_box {
+            width: 100%;
+        }
+
+        .all_div {
+            display: inline-block;
+            width: 100%;
+        }
+
+
+        .btn-finsh {
+            background-color: #4249b5;
+            color: #fff;
+            border-radius: 10px;
+            font-size: 30px;
+            padding: 7px;
+            width: 500px;
+        }
+
+        /*모달 부분*/
+
+        .Modal {
+            position: fixed;
+            background-color: rgba(0, 0, 0, 0.4);
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: none;
+        }
+
+        .ModalContent {
+            background-color: #fff;
+            width: 460px;
+            border-radius: 10px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 30px;
+            box-shadow: 0 0 15px black;
+            margin-left: 0;
+        }
+
+        .ModalContent legend {
+            text-align: center;
+            font-size: 30px;
+            border-bottom: 1px dashed black;
+        }
+
+        #title {
+            height: 200px;
+            background-image: url('img/상단.jpg');
+            background-position: center;
+            background-size: cover;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .login {
+            margin-top: 30px;
+        }
+
+        .login .top {
+            position: relative;
+            width: 350px;
+        }
+
+        #id {
+            margin-left: 10px;
+            width: 190px;
+            border-radius: 10px;
+            border: 2px solid black;
+        }
+
+        #pw {
+            margin-left: 10px;
+            width: 190px;
+            border-radius: 10px;
+            border: 2px solid black;
+        }
+
+        .login .top li {
+            padding: 0 0 9px;
+        }
+
+        .login .top li label {
+            display: inline-block;
+            width: 63px;
+            font-size: 20px;
+            color: #464646;
+            font-weight: bold;
+        }
+
+        .btn_login {
+            display: block;
+            width: 90px;
+            height: 67px;
+            background-color: #829c2c;
+            font-size: 17px;
+            color: #fff;
+            text-align: center;
+            font-weight: bold;
+            border: 1px solid #778f28;
+            border-radius: 10px;
+            position: absolute;
+            right: -25px;
+            top: 0;
+        }
+
+        .login.btm {
+            padding: 31px 0 0 59;
+        }
+
+        .login.btm li {
+            color: #383d41;
+            font-size: 12px;
+            text-align: center;
+        }
+
+        .btm {
+            text-align: center;
+            padding: 0px;
+        }
+
+        .login a {
+            text-decoration: none;
+        }
+
+
+        .btn-close {
+            position: absolute;
+            top: 5px;
+            right: 10px;
+            bottom: 20px;
+            box-sizing: content-box;
+            width: 1em;
+            height: 1em;
+            color: #000;
+            font-size: 50px;
+            text-align: center;
+
+        }
+    </style>
+   <script>
+    $(document).ready(function () {
+        comment_show()
+    });
+
+
+    $(document).ready(function () {
+    });
+    function login() {
+        let id = $('#id').val()
+        let pw = $('#pw').val()
+
+        let formData = new FormData();
+        formData.append("id_give", id);
+        formData.append("pw_give", pw);
+
+        fetch('/login', { method: "POST", body: formData, }).then((res) => res.json()).then((data) => {
+            alert(data["msg"]);
+            window.location.reload()
+        });
+    }
+
+    function logoutConfirm() {
+        if (confirm("정말 로그아웃하시겠습니까?")) {
+            location.href = 'logout'
+        }
+    }
+
+    function comment_save() {
+        let comment = $('#comment').val()
+        let formData = new FormData();
+        url = window.location.href
+
+        formData.append("comment_give", comment);
+        formData.append("url", url);
+
+        fetch('/comment', { method: "POST", body: formData, }).then((res) => res.json()).then((data) => {
+            console.log(data["msg"])
+            alert(data["msg"]);
+
+        });
+    }
+    function comment_show() {
+        fetch('/comment').then((res) => res.json()).then((data) => {
+            let rows = data['comment']
+
+            $('#comment_box').empty()
+            rows.forEach((a) => {
+                let comment = a['comment']
+                let mbti = a['writer']
+                let url = a['url']
+                let time = a['created_at']
+
+                if (url == window.location.href) {
+                    let temp_html = `<div class="v-comment">
+                                    <dl class="v-mbti">${mbti}
+                                        <dt class="mycoment">${comment}(${time})
+                                 </div>`
+                    $('#comment_box').append(temp_html)
+                } else {
+                    let temp_html = ``
+                    $('#comment_box').append(temp_html)
+                }
+
+
+
+            })
+
+
+        })
+    }
+
+
+
+
+    $(document).ready(function () {
+        if (document.location.href.includes("?")) {
+            show_cotent(document.location.href)
+        } else {
+            alert("가져올 데이터가 존재하지 않습니다.")
+            location.href = "/"
+        }
+    });
+    function show_cotent(url) {
+        url = url.replaceAll("%20", " ").split("?")
+
+        let user_id = url[1].split(";")[0].split("=")[1]
+        let created_at = url[1].split(";")[1].split("=")[1]
+
+        console.log(user_id, created_at)
+
+        $.ajax({
+            type: "POST",
+            url: "/content",
+            data: {
+                uid: user_id,
+                created_at: created_at
+            },
+            success: function (response) {
+                console.log(response)
+
+                let content = response
+                let category = content.category
+                let title = content.title
+                let writer = content.writer
+                let created_at = content.created_at
+                let hits = content.hits
+                let desc = content.content
+                let num = content.num
+                let like = content.like
+
+                let year = new Date(created_at).getFullYear().toString().substring(2)
+                let month = new Date(created_at).getUTCMonth() + 1
+                let day = new Date(created_at).getUTCDate()
+                let strdate = `${year}.${month}.${day}`
+
+                console.log(desc)
+
+                let temp_html = `<di class="v-title">
+                                    ${title}
+                                </di>
+                                <div class="v-info">
+                                    <dl>
+                                        <dt>번호</dt>
+                                        <dd id="numIn">${num}</dd>
+                                    </dl>
+                                    <dl>
+                                        <dt>게시판</dt>
+                                        <dd>${category}</dd>
+                                    </dl>
+                                    <dl>
+                                        <dt>MBTI</dt>
+                                        <dd>${writer}</dd>
+                                    </dl>
+                                    <dl>
+                                        <dt>작성일</dt>
+                                        <dd>${strdate}</dd>
+                                    </dl>
+
+                                </div>
+                                <div class="v-cont">
+                                    ${desc}
+                                </div>`
+                $('#post').append(temp_html)
+
+                $('#all_like').empty()
+                let temp_html2 = `<button class="btn-like" onclick="liky('${num}')" style='cursor:pointer'>공감</button>
+                                     <a>${like}개</a>`
+                $('#all_like').append(temp_html2)
+            }
+        });
+
+    }
+
+
+
+
+</script>
+</head>
+
+<body>
+<div id="title">
+    <a id="title_img" href="/">
+        <img src="{{ url_for('static', filename='images/상단.jpg') }}" />
+    </a>
+</div>
+<div class="all_div">
+    <div class="v-line">
+        <div class="info">
+            {%if session['id_give'] %}
+            {{session['id_give']}}<a>님 안녕하세요!</a><br>
+            <button class="mybutton" onclick="logoutConfirm()" style='cursor:pointer'>로그아웃</button>
+            {%else %}
+            <button id="btn-modal" class="mybutton" style='cursor:pointer'>로그인</button>
+            {%endif%}
+        </div>
+        <hr class="hr_first">
+        
+        <div class=" buttons">
+            <button class="manu" onclick="location.href='/board?category=freeboard'"
+                style='cursor:pointer'>자유게시판</button>
+        </div>
+        <div class="buttons">
+            <button class="manu" onclick="location.href='/board?category=loveboard'"
+                style='cursor:pointer'>연애상담소</button>
+        </div>
+        <div class="buttons">
+            <button class="manu" onclick="location.href='/board?category=jobboard'"
+                style='cursor:pointer'>취업Q&A</button>
+        </div>
+        <div class="buttons">
+            <button class="manu" onClick="location.href='/moyeojo'"
+                style='cursor:pointer'>개발자</button>
+        </div>
+    </div>
+
+    <div class="board_wrap">
+        <div class="board_view_wrap">
+            <div id="post" class="board_view"> <!--우람님 파트-->
+            </div>
+            <div id="all_like">
+                <button class="btn-like" onclick="liky('${num}')" style='cursor:pointer'>공감</button>
+                <a>[]개</a>
+            </div>
+        </div>
+        {%if session['id_give'] %}
+        <div class="comment">
+            <h2>댓글달기<input type="text" id="comment" class="m-com">
+                <a class="btn-finsh" onclick="comment_save()" href="">완료</a>
+            </h2>
+        </div>
+        {%else %}
+        <h2>로그인을 먼저 해주세요.</h2>
+        {%endif%}
+        <div id="comment_box" class="v-cbox">
+            <div class="v-comment">
+                <dl class="v-mbti">infp
+                    <dt class="mycoment">여기에 코맨트가 들어갑니다.
+            </div>
+        </div>
+    </div>
+    <div class="Modal">
+        <form action="" method="">
+            <fieldset class="ModalContent">
+                <a class="btn-close" href="#">x</a>
+                <div>
+                    <legend>
+                        <로그인>
+                    </legend>
+                </div>
+                <div class="login">
+                    <ul class="top">
+                        <li><label for="text1">아이디</label><input type="text" id="id"></li>
+                        <li><label for="text2">비밀번호</label><input type="password" id="pw"></li>
+                        <input type="button" class="btn_login" onclick="login()" value="로그인" style='cursor:pointer'>
+                    </ul>
+                    <ul class="btm">
+                        <li><a href="#" onClick="location.href='signup'">회원이 아니신가요?</a></li>
+                    </ul>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+    <script>
+        $('.mybutton').click(function () {
+            $('.Modal').fadeIn()
+        })
+        $('.btn-close').click(function () {
+            $('.Modal').fadeOut()
+        })
+
+        function liky() {
+
+            num = numIn.innerText
+            let formData = new FormData();
+
+            formData.append("num_give", num);
+
+            fetch('/like', { method: "POST", body: formData, }).then((res) => res.json()).then((data) => {
+                alert(data["msg"]), window.location.reload();
+            })
+        }
+       
+    </script>
+</body>
+
+</html>

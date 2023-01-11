@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dongle&display=swap" rel="stylesheet">
+
+    
+    <meta property="og:title" content="모여봐요 MBTI" />
+    <meta property="og:description" content="MBTI익명커뮤사이트" />
+    <meta property="og:image" content="https://health.chosun.com/site/data/img_dir/2022/06/20/2022062001930_0.jpg" />
+
+    <title>모여봐요 MBTI</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dongle&display=swap');
+
+        * {
+            /* 폰트 아직 고민중 */
+            font-family: 'Dongle', sans-serif;
+            font-size: 20px;
+        }
+
+        #title {
+            height: 200px;
+        }
+
+        #title img {
+            height: 200px;
+            width: 100%;
+        }
+
+        .mybutton {
+            height: 50px;
+            width: 150px;
+            border-radius: 10px;
+            border: none;
+            font-size: 30px;
+        }
+
+        .mybutton:hover {
+            background: silver;
+        }
+
+        .info {
+            height: 50px;
+            width: 150px;
+            margin: 0 auto;
+            margin-top: 40px;
+            margin-bottom: 50px;
+        }
+
+        hr {
+            width: 30%;
+            border: 2px solid rgb(145, 142, 142);
+            margin-bottom: 50px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .manu {
+            height: 80px;
+            width: 150px;
+
+            border-radius: 10px;
+            border: none;
+
+            font-size: 30px;
+            color: white;
+
+            background-color: #5151A5;
+        }
+
+        .manu:hover {
+            background: #202058;
+        }
+
+        .buttons {
+            height: 80px;
+            width: 150px;
+            margin: 0 auto;
+            margin-top: 30px;
+        }
+
+        .Modal {
+            position: fixed;
+            background-color: rgba(0, 0, 0, 0.4);
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: none;
+        }
+
+        .ModalContent {
+            background-color: #fff;
+            width: 460px;
+            border-radius: 10px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 30px;
+            box-shadow: 0 0 15px black;
+            margin-left: 0;
+        }
+
+        .ModalContent legend {
+            text-align: center;
+            border-bottom: 1px dashed black;
+        }
+
+        #title {
+            height: 200px;
+            background-image: url('img/상단.jpg');
+            background-position: center;
+            background-size: cover;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .login {
+            margin-top: 80px;
+        }
+
+        .login .top {
+            position: relative;
+            width: 350px;
+        }
+
+        #id {
+            margin-left: 10px;
+            width: 150px;
+            border-radius: 10px;
+            border: 2px solid black;
+        }
+
+        #pw {
+            margin-left: 10px;
+            width: 150px;
+            border-radius: 10px;
+            border: 2px solid black;
+        }
+
+        .login .top li {
+            padding: 0 0 9px;
+        }
+
+        .login .top li label {
+            display: inline-block;
+            width: 63px;
+            font-size: 20px;
+            color: #464646;
+            font-weight: bold;
+        }
+
+
+        .login .top li.btn {
+            position: absolute;
+            right: -25px;
+            top: 0;
+        }
+
+        .login .top li a {
+            display: block;
+            width: 90px;
+            height: 67px;
+            background-color: #829c2c;
+            font-size: 17px;
+            color: #fff;
+            text-align: center;
+            line-height: 69px;
+            font-weight: bold;
+            border: 1px solid #778f28;
+            text-decoration: none;
+            border-radius: 10px;
+        }
+
+        .login.btm {
+            padding: 31px 0 0 59;
+        }
+
+        .login.btm li {
+            color: #383d41;
+            font-size: 12px;
+            text-align: center;
+        }
+
+        .btm {
+            text-align: center;
+            padding: 0px;
+        }
+
+        .login a {
+            text-decoration: none;
+        }
+
+
+        .btn-close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+        }
+    </style>
+
+    <script>
+        $(document).ready(function () {
+        });
+        function login() {
+            let id = $('#id').val()
+            let pw = $('#pw').val()
+
+            let formData = new FormData();
+            formData.append("id_give", id);
+            formData.append("pw_give", pw);
+
+            fetch('/login', { method: "POST", body: formData, }).then((res) => res.json()).then((data) => {
+                alert(data["msg"]);
+                window.location.reload()
+            });
+        }
+
+        function logoutConfirm() {
+            if (confirm("정말 로그아웃하시겠습니까?")) {
+                location.href = 'logout'
+            }
+        }
+
+
+    </script>
+
+</head>
+
+<body>
+    <div id="title">
+        <img src="{{ url_for('static', filename='images/상단.jpg') }}" />
+    </div>
+    <div class="info">
+        {%if session['id_give'] %}
+        {{session['id_give']}}({{session['mbti']}})<a>님 반가워요!</a><br>
+        <button class="mybutton" onclick="logoutConfirm()" style='cursor:pointer'>로그아웃</button>
+        {%else %}
+        <button id="btn-modal" class="mybutton" style='cursor:pointer'>로그인</button>
+        {%endif%}
+    </div>
+    <hr>
+    <div class="buttons">
+        <button class="manu" onclick="location.href='/board?category=freeboard'" style='cursor:pointer'>자유게시판</button>
+    </div>
+    <div class="buttons">
+        <button class="manu" onClick="location.href='/board?category=loveboard'" style='cursor:pointer'>연애상담소</button>
+    </div>
+    <div class="buttons">
+        <button class="manu" onClick="location.href='/board?category=jobboard'" style='cursor:pointer'>취업Q&A</button>
+    </div>
+    <div class="buttons">
+        <button class="manu" onClick="location.href='/moyeojo'" style='cursor:pointer'>개발자</button>
+    </div>
+    <div class="Modal">
+        <form action="" method="">
+            <fieldset class="ModalContent">
+                <a class="btn-close" href="#"></a>
+                <legend>
+                    <로그인>
+                </legend>
+                <div class="login">
+                    <ul class="top">
+                        <li><label for="text1">아이디</label><input type="text" id="id"></li>
+                        <li><label for="text2">비밀번호</label><input type="password" id="pw"></li>
+                        <li class="btn" onclick="login()"><a href="#a">로그인</a></li>
+                    </ul>
+                    <ul class="btm">
+                        <li><a href="#" onClick="location.href='signup'">회원이 아니신가요?</a></li>
+                    </ul>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+    <script>
+        $('.mybutton').click(function () {
+            $('.Modal').fadeIn()
+        })
+        $('.btn-close').click(function () {
+            $('.Modal').fadeOut()
+        })
+    </script>
+
+</body>
+
+</html>
